@@ -1,0 +1,55 @@
+\documentclass[12pt,notitlepage,oneside]{report}
+
+\usepackage{buetcseugthesis}
+
+% Uncomment the following line if you need to write in Bangla
+% \usepackage{usebangla}
+
+% Uncomment any of the following lines should you need to
+% suppress the LOF, or LOT or LOA
+
+% \suppresslistoffigures 
+% \suppresslistoftables
+% \suppresslistofalgorithms
+
+% For index creation, comment this out if you do not want to create an
+% index
+\makeindex[intoc]
+
+\begin{document}
+
+% Edit as needed below this line
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Chapter-1 Introduction
+\input{buetcseugthesisintroduction.tex}
+
+% Citation examples
+\input{buetcseugthesisciteexamples.tex}
+
+% Another chapter
+\input{buetcseugthesisanotherchapter.tex}
+
+% Chapter showing example of index creation
+\input{buetcseugthesisindexcreation.tex} 
+
+% Bangla example, uncomment if you need this
+% \input {banglaexample.tex}
+
+% Chapter with math in ttile
+\input{buetcseugthesischapterwithmathintitle.tex}
+
+% Bibliographies and appendices
+\input{buetcseugthesisbibliography.tex}
+
+% Index, comment this out if you do not want to create an index
+\printindex
+
+\appendix
+% Algorithms
+\input{buetcseugthesisalgorithms.tex}
+
+% Codes
+\input{buetcseugthesiscodes.tex}
+
+\end{document}

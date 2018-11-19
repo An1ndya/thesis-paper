@@ -1,0 +1,130 @@
+\chapter{Introduction}\label{intro}
+
+This chapter is for your introduction.
+
+\section{Cross Referencing}
+We have incorporated the \verb@\cref@ or \verb@\Cref@ command from
+\texttt{cleveref} package in this system. This will automatically
+insert words like Figure, Table etc.\ in your text.
+
+See these examples:
+\begin{itemize}
+\item \Cref{fig:sample} is a sample figure.
+\item \Cref{tab_our} is a table.
+\item \Cref{sec:cite} in \Cref{ch:citations} shows some examples of
+  citations.
+\end{itemize}
+
+\section{How to Write a Section}
+
+This is for writing section.
+
+\section{How to Add Table and Figures}\label{contribution}
+You should refer a figure as, ``\Cref{fig:sample} is a sample
+figure''.
+
+\begin{figure}[!tb]
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/sample}
+  \caption{This is a sample figure.}
+  \label{fig:sample}
+\end{figure}
+
+				
+Then we applied same test cases to our modified algorithm i.e.\ the
+heuristic algorithm with our new operation \textit{Block Reversal}. The
+performance is shown in \Cref{tab_our}.
+
+
+\begin{table}[!tb]
+  \begin{center}
+    \caption{Performance table of \emph{Block reversal} in a heuristic algorithm}
+    \label{tab_our}
+
+    \begin{tabular}{|l|r|r|r|r|r|r|r|r|r|r|r|r|r|}
+      \hline
+      $\alpha$     & $\alpha n$ & \multicolumn{11}{c|}{Test Cases} & \multicolumn{1}{c|}{Average \# of}                                     \\
+      \cline{3-13} &            & 1                                & 2  & 3  & 4  & 5  & 6  & 7  & 8  & 9  & 10 & 11 & calculated operation \\
+      \hline
+      0.1        & 2          & 2                                & 2	& 2  & 2  & 2  & 2  & 2  & 2  &	2  & 2	& 2  & 2                    \\
+      0.2        & 4          & 4                                & 4	& 5  & 2  & 4  & 4  & 4  & 4  &	2  & 4	& 4  & 3.73                 \\
+      0.3        & 6          & 5                                & 6	& 6  & 6  & 6  & 7  & 6  & 5  &	6  & 6	& 6  & 5.91                 \\
+      0.4        & 8          & 7                                & 8	& 5  & 6  & 7  & 6  & 6  & 7  &	8  & 8	& 7  & 6.82                 \\
+      0.5        & 10         & 9                                & 10	& 6  & 12 & 10 & 8  & 10 & 10 &	7  & 7	& 10 & 9                    \\
+      0.6        & 12         & 9                                & 12	& 16 & 10 & 12 & 12 & 9  & 11 &	12 & 9	& 12 & 11.27                \\
+      0.7        & 14         & 13                               & 7	& 18 & 15 & 14 & 8  & 13 & 11 &	13 & 13	& 14 & 12.64                \\
+      0.8        & 16         & 10                               & 17	& 14 & 16 & 13 & 16 & 13 & 11 &	13 & 17	& 13 & 13.91                \\
+      0.9        & 18         & 14                               & 16	& 15 & 12 & 15 & 11 & 15 & 11 &	15 & 12	& 12 & 13.45                \\
+      1          & 20         & 18                               & 11	& 13 & 11 & 13 & 15 & 17 & 17 &	13 & 18	& 12 & 14.36                \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+
+These are some dummy text used as page fillers only.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et
+ultricies massa. Nulla a sapien lobortis, dignissim nibh in, aliquet
+mauris. Integer at dictum metus. Quisque in tortor congue ipsum
+ultricies tristique. Maecenas ut tortor dapibus, sagittis enim at,
+tincidunt massa. Ut sollicitudin sagittis ipsum, ac tincidunt quam
+gravida ac. Nullam quis faucibus purus. Aliquam vel pretium
+turpis. Aliquam a quam non ex interdum sagittis id vitae quam. Nullam
+sodales ligula malesuada maximus consequat. Proin a justo eget lacus
+vulputate maximus luctus vitae enim. Aliquam libero turpis, pharetra a
+tincidunt ac, pulvinar sit amet urna. Pellentesque eget rutrum diam,
+in faucibus sapien. Aenean sit amet est felis. Aliquam dolor eros,
+porttitor quis volutpat eget, posuere a ligula. Proin id velit ac
+lorem finibus pellentesque.
+
+Maecenas vitae interdum mi. Aenean commodo nisl massa, at pharetra
+libero cursus vitae. In hac habitasse platea dictumst. Suspendisse
+iaculis euismod dui, et cursus diam. Nullam euismod, est ut dapibus
+condimentum, lorem eros suscipit risus, sit amet hendrerit justo
+tortor nec lorem. Morbi et mi eget erat bibendum porta. Ut tristique
+ultricies commodo. Nullam iaculis ligula sed lacinia ornare.
+
+Sed ultricies cursus nisi at vestibulum. Aenean laoreet viverra
+efficitur. Ut eget sapien lorem. Mauris malesuada, augue in pulvinar
+consectetur, ex tortor tristique ligula, sit amet faucibus metus
+lectus interdum nisl. Nam eget turpis vitae ligula pulvinar bibendum a
+ut ipsum. Mauris fringilla lacinia malesuada. Fusce id orci
+velit. Donec tristique rhoncus urna, a hendrerit arcu vehicula
+imperdiet. Integer tristique erat at gravida condimentum. Sed ornare
+cursus quam, eget tincidunt enim bibendum sed. Aliquam elementum
+ligula scelerisque leo sagittis, quis convallis elit dictum. Donec sit
+amet orci aliquam, ultricies sapien nec, gravida nisi. Etiam et
+pulvinar diam, et pellentesque arcu. Nulla interdum metus sed aliquet
+consequat.
+
+Proin in mi id nulla interdum aliquet ac quis arcu. Duis blandit
+sapien commodo turpis hendrerit pharetra. Phasellus sit amet justo
+orci. Proin mattis nisl dictum viverra fringilla. Interdum et
+malesuada fames ac ante ipsum primis in faucibus. Curabitur facilisis
+euismod augue vestibulum tincidunt. Nullam nulla quam, volutpat vitae
+efficitur eget, porta sit amet nunc. Phasellus pharetra est eget urna
+ornare volutpat. Aenean ultrices, libero eget porttitor fringilla,
+purus tortor accumsan neque, sit amet viverra felis tortor eget
+justo. Nunc id metus a purus tempus euismod condimentum non lacus. Nam
+vitae diam aliquam, facilisis diam quis, pharetra nunc. Nulla eget
+vestibulum tellus, ut cursus tellus. Vestibulum euismod pellentesque
+sodales.
+
+Maecenas at mi interdum, faucibus lorem sed, hendrerit nisi. In vitae
+augue consequat diam commodo porta sit amet eu purus. Mauris mattis
+condimentum feugiat. Nulla commodo molestie risus vitae maximus. Proin
+hendrerit neque malesuada urna laoreet convallis. Etiam a diam
+pulvinar, auctor sem ac, hendrerit risus. Ut urna urna, venenatis ac
+tellus non, scelerisque tristique ligula. Vestibulum sollicitudin vel
+leo malesuada accumsan. Donec sit amet erat diam. Vestibulum ante
+ipsum primis in faucibus orci luctus et ultrices posuere cubilia
+Curae; Vivamus odio dui, scelerisque et lorem egestas, posuere
+ullamcorper nunc. Integer varius nunc nec velit tincidunt
+commodo. Mauris rhoncus ultrices sapien non suscipit.
+
+
+End of dummy text.
+
+
+\endinput

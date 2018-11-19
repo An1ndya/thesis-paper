@@ -1,0 +1,15 @@
+The following fonts need to be installed in your operating system font
+path.
+
+	Times New Roman
+	SolaimanLipi
+
+Remove comment from the following lines in your main file.
+% \usepackage{usebangla}
+
+% \input {banglaexample.tex}
+
+
+To compile your file you need to use xelatex instead of pdflatex. For
+some unknown reason, sharelatex cannot support this with Bangla.
+

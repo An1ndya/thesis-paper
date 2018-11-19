@@ -1,0 +1,22 @@
+\RequirePackage{fontspec}
+\RequirePackage{polyglossia}
+
+% English
+\setmainlanguage{english}
+
+% Times New Roman used
+\newfontfamily{\englishfont}[Mapping=tex-text, Ligatures=TeX]{Times New Roman}
+
+
+% Bangla
+\setotherlanguage[numerals=Devanagari]{bengali}
+\newfontfamily\bengalifont[Script=Bengali]{SolaimanLipi}
+\newfontfamily\bengalifontbf[Script=Bengali]{SolaimanLipi}
+\newfontfamily\bengalifonttt[Script=Bengali]{SolaimanLipi}
+\newfontfamily\bengalifontsf[Script=Bengali]{SolaimanLipi}
+\newfontfamily\bengalifontit[Script=Bengali]{SolaimanLipi}
+
+% Shorthand for Bangla
+\long\def\bengalitext#1{\begin{bengali}
+    #1
+  \end{bengali}}

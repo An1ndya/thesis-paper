@@ -1,0 +1,284 @@
+% You should not change anything in this file unless you really know
+% what you are doing.
+\RequirePackage{graphicx}
+\RequirePackage{algorithmic}
+\RequirePackage{algorithm}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage[a4paper,left=25.0mm, right=25.0mm, top=25.0mm, bottom=25.0mm]{geometry}
+\RequirePackage{times}
+\RequirePackage{cite}
+\RequirePackage{url}
+\RequirePackage{listings}
+\RequirePackage[final, colorlinks, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+% Prevent math from being upcased
+% http://tex.stackexchange.com/questions/46525/preventing-makeuppercase-from-affecting-mathematics
+\RequirePackage{textcase}
+
+% Definition macros
+\def\cse{Department of Computer Science and Engineering}
+\def\buet{Bangladesh University of Engineering and Technology}
+
+% sets spacing between paragraphs
+\parskip 2.5mm           
+
+% Clever referencing
+\RequirePackage{cleveref}
+
+% Caption setup
+\RequirePackage{caption} 
+\captionsetup[table]{skip=2.50mm}
+
+% 1.5 spacing
+\RequirePackage{setspace}
+\onehalfspacing
+\RequirePackage{xspace}
+
+% sets leading space for paragraphs
+\parindent 0.0mm		  
+
+
+% Read and store student names in DB
+\RequirePackage{datatool}
+\DTLloaddb[noheader]{ThesisStudents}{parameters/students.txt}
+\DTLloaddb[noheader]{Supervisor}{parameters/supervisor.txt}
+
+% Thesis parameters
+\def\thesistitle{\input{parameters/thesistitle.txt}\unskip}
+\def\thesisdate{\input{parameters/thesisdate.txt}\unskip}
+
+% Thesis title page 
+\def\thesistitlepage{
+  \thispagestyle{empty}
+  \begin{center}
+    B.Sc.\ in Computer Science and Engineering Thesis\\
+    \vspace*{\stretch{2}}
+    \textbf{{\Large\thesistitle}}
+
+    \vspace*{\stretch{5}}
+    {\large Submitted by}\\
+    \DTLforeach{ThesisStudents}{\StudentName=Column1,\StudentID=Column2}{\vspace*{\stretch{1}}\StudentName\\\StudentID\\}
+    \vspace*{\stretch{3}}
+    {\large Supervised by}\\
+    \vspace*{\stretch{1}}
+    \DTLforeach{Supervisor}{\SupervisorName=Column1,\SupervisorDesignation=Column2}{\SupervisorName}\\
+    \vspace*{\stretch{4}}{\tiny.}\vspace*{\stretch{2}}
+    \includegraphics[width=30mm]{figures/buetlogo}\\
+    \textbf{\cse}\\
+    \textbf{\large\buet}\\
+    \medskip
+    Dhaka, Bangladesh\\
+    \bigskip
+    \vspace*{\stretch{1}}
+    \thesisdate
+  \end{center}}
+
+
+% Thesis certification page
+\def\thesiscertificationpage{
+  \begin{center}
+    \textbf{{\Large CERTIFICATION}}
+  \end{center}
+  \addcontentsline{toc}{chapter}{\textbf{\normalsize{\emph{CERTIFICATION}}}}
+  \bigskip\bigskip
+  
+
+  This thesis titled, \textbf{\lq\lq\thesistitle\rq\rq}, submitted by
+  the group as mentioned below has been accepted as satisfactory in
+  partial fulfillment of the requirements for the degree B.Sc.\ in
+  Computer Science and Engineering in \thesisdate.
+
+  \vspace{\stretch{1}}  
+
+  \subsubsection*{Group Members:}
+  
+  \begin{enumerate}
+    \DTLforeach{ThesisStudents}{\StudentName=Column1}{\item[]\textbf{\StudentName}}
+  \end{enumerate}
+  
+  \vspace{\stretch{1}}
+  
+  \subsubsection*{Supervisor:}
+  \vspace*{15.0mm}
+
+  \hspace*{15.0mm}\begin{minipage}[t]{0.6\textwidth}
+    \hrule\medskip
+    \DTLforeach{Supervisor}{\SupervisorName=Column1,\SupervisorDesignation=Column2}{\SupervisorName\par\SupervisorDesignation}\par
+    \cse\par
+    \buet
+  \end{minipage}
+
+  \vspace{\stretch{2}}}
+
+% Thesis candidates' declaration
+\def\thesiscandidatesdeclaration{
+  \begingroup
+  \begin{center}
+    \textbf{{\Large CANDIDATES' DECLARATION}}
+  \end{center}
+  \addcontentsline{toc}{chapter}{\textbf{\normalsize{\emph{CANDIDATES' DECLARATION}}}}
+  \vspace*{\stretch{1}}
+    
+  This is to certify that the work presented in this thesis, titled,
+  ``\thesistitle'', is the outcome of the investigation and research
+  carried out by us under the supervision of
+  \DTLforeach{Supervisor}{\SupervisorName=Column1,\SupervisorDesignation=Column2}{\SupervisorName}.
+
+  \bigskip
+
+  It is also declared that neither this thesis nor any part thereof
+  has been submitted anywhere else for the award of any degree,
+  diploma or other qualifications.
+
+
+  \DTLforeach{ThesisStudents}{\StudentName=Column1,\StudentID=Column2}{
+    \vspace*{25.0mm}
+    \begin{minipage}[t]{0.4\textwidth}
+      \hrule\medskip
+      \StudentName\par
+      \StudentID
+    \end{minipage}\par}
+  
+  \vspace*{\stretch{2}}
+  \endgroup}
+
+% Acknowledgement
+\def\thesisacknowledgement{%
+  \begin{center}
+    \textbf{{\Large ACKNOWLEDGEMENT}}\\[60pt]
+  \end{center}
+  \addcontentsline{toc}{chapter}{\textbf{\normalsize{\emph{ACKNOWLEDGEMENT}}}}
+
+  \@input {inputs/acknowledgement.tex}
+
+  \vspace*{20.0mm}
+
+  \begin{minipage}[t]{0.2\textwidth}
+    Dhaka\par
+    \thesisdate
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.45\textwidth}
+    \begin{enumerate}
+      \vspace{-0.75\baselineskip}
+      \DTLforeach{ThesisStudents}{\StudentName=Column1}{\item[]\StudentName}
+    \end{enumerate}
+  \end{minipage}}
+
+% Abstract
+\def\thesisabstract{%
+  \renewcommand{\abstractname}{\textbf{{\Large ABSTRACT}}}
+  \addcontentsline{toc}{chapter}{\textbf{\normalsize{\emph{ABSTRACT}}}}
+  \begin{abstract}\thispagestyle{plain}
+    \@input {inputs/abstract.tex}
+  \end{abstract}}
+
+% Inclusion of lof and lot in toc
+\RequirePackage[nottoc,notbib]{tocbibind}
+\RequirePackage{tocloft}
+
+
+\RequirePackage{etoolbox}
+\newtoggle{suppress@lof}
+\newtoggle{suppress@lot}
+\newtoggle{suppress@lo@}
+
+\def\suppresslistoffigures{\global\toggletrue{suppress@lof}}
+\def\suppresslistoftables{\global\toggletrue{suppress@lot}}
+\def\suppresslistofalgorithms{\global\toggletrue{suppress@lo@}}
+
+
+\def\listsandtoc{
+  % Table of contents
+  \tableofcontents
+
+  % List of figures, if not suppressed
+  \iftoggle{suppress@lof}{\relax}{\cleardoublepage\listoffigures}
+
+  % List of tables, if not suppressed
+  \iftoggle{suppress@lot}{\relax}{\cleardoublepage\listoftables}
+
+  % List of algorithms, if not suppressed
+  \iftoggle{suppress@lo@}{\relax}{\cleardoublepage
+    \addcontentsline{toc}{chapter}{\listalgorithmname}
+    \listofalgorithms}
+}
+
+% Starting materials
+\def\st@rtingm@teri@ls{
+  \pagenumbering{Alpha}
+  \thesistitlepage
+
+  \cleardoublepage
+  \pagenumbering{roman}
+  \setcounter{page}{1}
+  \thesiscandidatesdeclaration
+
+  \cleardoublepage
+  \thesiscertificationpage
+
+  \cleardoublepage
+  \thesisacknowledgement
+
+  \cleardoublepage
+  \listsandtoc
+  
+  \cleardoublepage
+  \thesisabstract
+}
+
+
+% Fancy page style
+\RequirePackage{fancyhdr}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.250mm}
+\renewcommand{\footrulewidth}{0.0mm}
+\fancyheadoffset[R]{0.075\textwidth}
+\fancyhead[L]{\slshape \rightmark}
+\fancyhead[R]{\textbf{\thepage}}
+
+% Starting materials
+\AtBeginDocument{\st@rtingm@teri@ls
+  \cleardoublepage
+  \pagestyle{fancy}
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
+}
+
+% For index creation
+\RequirePackage{imakeidx}
+
+% Version information at the end
+\RequirePackage[nofancy,notoday]{rcsinfo}
+\rcsInfo $Id: buetcseugthesis.sty,v 1.4 2017/09/29 13:23:11 masroor Exp $
+\RequirePackage{datetime}
+
+\AtEndDocument{%
+  \clearpage
+  \pagestyle{plain}
+  
+  \begingroup
+  
+  \flushright
+
+  \vspace*{0.0mm}
+  \vfill\vfill\vfill\vfill\vfill
+  \sffamily
+
+  Generated using Undegraduate Thesis \LaTeX\xspace Template,
+  Version~\rcsInfoRevision. \cse, \buet, Dhaka, Bangladesh.
+
+  \bigskip
+
+  \settimeformat{ampmtime}
+
+  This thesis was generated on~\today\xspace at~\currenttime.
+
+  \vfill
+
+  \endgroup}
+
+
+
+\endinput
