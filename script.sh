@@ -1,0 +1,1 @@
+pdflatex knowledge-graph.tex

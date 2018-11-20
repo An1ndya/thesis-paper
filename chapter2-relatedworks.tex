@@ -1,0 +1,35 @@
+\chapter{Related Works}\label{intro}
+Previously there have been many researches conducted on knowledge graphs.
+Most of them primarily identify major terms or keywords, remove noise, 
+fetching missing information and disambiguate them to appropriate topic.
+ 
+
+ 
+To disambiguate and relate a concept with similar concept,
+researchers have used Probabilistic Soft Logic (PSL) withontological constraints,  
+identify coreferences etc, as well as machine learning, deep neural networks.
+There are many links among different concepts. Mihalcea annd Csomai et al worked onlink detection. 
+Their work is on linking phrases to appropriate concept. To disambiguate in link detetion, they 
+took help of the surrounding words ( the words themselves and their parts of speech), and compare with training data.
+After that, in order to organize the documents, they have used topic indexing.
+In order to make link detection efficient, Mihalcea annd Csomai et al used (a) commonness (prior probability 
+of each sense) and (b) how the sense relate with the nearby context.
+
+
+ 
+Next we have an important work of Larry Heck and Hongzhao Huang. First they developed a robust way to represent concepts.
+ Many NLP tools use string concatenation to represent ideas.
+But most of the time it fails to represent appropriate concepts. For example 'Madrid' is a place, 'Real' means 
+something authentic or true, but 'Real Madrid' referres to a football club. This is a counter example where string concatenation fails.
+A possible alternative is to use word hashing with n-gram (tri-gram) word representation. This way can be
+ used to represent any words that are not even seen before. After that they did neural embedding of knowledge graph. 
+ To do so, they tracked a concept and its corresponding subgraph, encode the knowledge as featured vector.
+ then they trained Deep Neural Network to get semantic relationship.
+
+ 
+
+
+
+
+
+\endinput

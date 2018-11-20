@@ -1,7 +1,7 @@
 % Put in this file the names of the thesis group members.
 % One name per line, follow the name with the student number, 
 % separated by a comma (,)
-Shukanto, 201205068
+Sukanta Kundu, 201205068
 Anindya Biswas, 201405006
 Qazi Fahim Farhan, 201405052
 
