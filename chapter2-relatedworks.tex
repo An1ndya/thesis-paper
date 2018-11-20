@@ -1,35 +1,42 @@
 \chapter{Related Works}\label{intro}
 Previously there have been many researches conducted on knowledge graphs.
-Most of them primarily identify major terms or keywords, remove noise, 
-fetching missing information and disambiguate them to appropriate topic.
+Let us discuss them one by one.
  
+In the paper `Knowledge Graph Identification' ~\cite{ref0kgi}, the authors have extracted uncertain
+ entities and their relations to create an `extraction graph'.  Next they removed noise, added missing 
+ information and determined candidate facts that resulted into a Knowledge Graph Identification. To 
+ disambiguate and relate a concept with similar concept,
+the researchers have used Probabilistic Soft Logic (PSL) ~\cite{ref0psl}  ontological constraints,  
+identify coreferences etc.
+
+One common problem in building a Knowledge Graph is to find appropriate links between various 
+concepts. Mihalcea annd Csomai et al ~\cite{ref3LinkWikipedia} have worked on link detection. They used 
+machine learning on a wikipedia dump to link an article with its corresponding mention. 
+There they have also calculated 
+link probability of various phrases or mentions. Next they disambiguated links by taking help of the surrounding words 
+( the words themselves and their parts of speech), comparing 
+the  common meaning with the relatedness to the corresponding context and check with training data. 
+For example, the word `tree' has a common meaning `plant' and so 97\% of the time, it will link to a page on plants.
+But if we find `binary tree' in a document, the relatedness of `tree' to `binary' suggests that this
+phrase is related to data structure. That is how almost everyone disambiguates links.   
+
+%After that, in order to organize the documents, they have used topic indexing.
+%In order to make link detection efficient, Mihalcea annd Csomai et al used 
+%(a) commonness (prior probability of each sense) and (b) how the sense relate with the nearby context.
+
 
  
-To disambiguate and relate a concept with similar concept,
-researchers have used Probabilistic Soft Logic (PSL) withontological constraints,  
-identify coreferences etc, as well as machine learning, deep neural networks.
-There are many links among different concepts. Mihalcea annd Csomai et al worked onlink detection. 
-Their work is on linking phrases to appropriate concept. To disambiguate in link detetion, they 
-took help of the surrounding words ( the words themselves and their parts of speech), and compare with training data.
-After that, in order to organize the documents, they have used topic indexing.
-In order to make link detection efficient, Mihalcea annd Csomai et al used (a) commonness (prior probability 
-of each sense) and (b) how the sense relate with the nearby context.
-
-
- 
-Next we have an important work of Larry Heck and Hongzhao Huang. First they developed a robust way to represent concepts.
+Next we have an important work of Larry Heck and Hongzhao Huang ~\cite{ref1DeepLearning}. 
+First they developed a robust way to represent concepts.
  Many NLP tools use string concatenation to represent ideas.
-But most of the time it fails to represent appropriate concepts. For example 'Madrid' is a place, 'Real' means 
-something authentic or true, but 'Real Madrid' referres to a football club. This is a counter example where string concatenation fails.
-A possible alternative is to use word hashing with n-gram (tri-gram) word representation. This way can be
- used to represent any words that are not even seen before. After that they did neural embedding of knowledge graph. 
+But most of the time it fails to represent appropriate concepts. For example `Madrid' is a place, `Real'
+ means 
+something authentic or true, but `Real Madrid' refers to a football club. 
+This is a counter example where string concatenation fails.
+A possible alternative is to use word hashing with $n$-gram ( tri-gram in this case) 
+word representation. This way turns words into concept-vectors. This representation is 
+robust because it can be used even for unseen words. After that they did neural embedding of knowledge graph. 
  To do so, they tracked a concept and its corresponding subgraph, encode the knowledge as featured vector.
- then they trained Deep Neural Network to get semantic relationship.
-
- 
-
-
-
-
-
+ then they trained Deep Neural Network to get semantic relationships among various concepts.
+After that, they took tweets and used their deep neural network on those tweets.
 \endinput

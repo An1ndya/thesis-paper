@@ -1,43 +1,23 @@
-@article{ref0kgi,
-  title={Knowledge Graph Identification},
-  author={Jay Pujara, Hui Miao , Lise Getoor, William Cohen},
-  journal={International Semantic Web},
-  pages={0--1},
-  year={2013},
-  publisher={Springer}
-}
-
-@article{ref0psl,
-  title={A Short Introduction to Probabilistic Soft Logic},
-  author={Angelika Kimming, Stephen H. Batch, Matthias Broecheler, Bert Huang, Lise Getoor},
-  pages={0--1},
-  year={2012},
-  publisher={lirias.kuleuven.be}
-}
-
-@article{ref1DeepLearning,
+@article{ref1,
   title={Deep Learning of Knowledge Graph Embeddings for Semantic Parsing of Twitter Dialogs},
   author={Larry Heck, Hongzhao Huang},
   journal={Signal and Information Processing},
-  pages={0--1},
   year={2014},
   publisher={ieeexplore.ieee.org}
 }
 
-@article{ref2ClickThroughData,
+@article{ref2,
   title={Learning deep structured semantic models for web search using clickthrough data},
   author={P. Huang, X. He, J. Gao, L. Deng, A. Acero, and L. Heck},
   journal={CIKM},
-  pages={0--1},
   year={2014},
   publisher={ieeexplore.ieee.org}
 }
 
-@article{ref3LinkWikipedia,
-  title={Learning to Link with Wikipedia},
-  author={David Milne, Ian H. Witten},
+@article{ref3,
+  title={},
+  author={P. Huang, X. He, J. Gao, L. Deng, A. Acero, and L. Heck},
   journal={CIKM},
-  pages={0--1},
   year={2014},
   publisher={ieeexplore.ieee.org}
 }
