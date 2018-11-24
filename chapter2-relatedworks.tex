@@ -1,32 +1,64 @@
-\chapter{Related Works}\label{intro}
+\chapter{Related Works}\label{ch2}
 Previously there have been many researches conducted on knowledge graphs.
 Let us discuss them one by one.
  
 In the paper `Knowledge Graph Identification' ~\cite{ref0kgi}, the authors have extracted uncertain
  entities and their relations to create an `extraction graph'.  Next they removed noise, added missing 
- information and determined candidate facts that resulted into a Knowledge Graph Identification. To 
- disambiguate and relate a concept with similar concept,
+ information and determined candidate facts that resulted into a Knowledge Graph Identification. Reasoning 
+ jointly about candidate facts, extracting their confidence, identifying coreferences, imposing 
+ ontological constraints, removing duplicate entities, resolving ontological constraints
+ were some of the other tasks. To disambiguate and relate a concept with similar concept,
 the researchers have used Probabilistic Soft Logic (PSL) ~\cite{ref0psl}  ontological constraints,  
-identify coreferences etc.
+identify coreferences etc. 
+
+PSL has some advantages. Models can be easily defined using declarative rules with first order logic syntax. 
+We can have continuously valued random variables that is convenient with uncertainty or probability.
+Using weights, we can control the importance of model rules.
 
 One common problem in building a Knowledge Graph is to find appropriate links between various 
 concepts. Mihalcea annd Csomai et al ~\cite{ref3LinkWikipedia} have worked on link detection. They used 
-machine learning on a wikipedia dump to link an article with its corresponding mention. 
+machine learning on a wikipedia dump to link a concept(article) with its corresponding mention. 
 There they have also calculated 
-link probability of various phrases or mentions. Next they disambiguated links by taking help of the surrounding words 
-( the words themselves and their parts of speech), comparing 
-the  common meaning with the relatedness to the corresponding context and check with training data. 
+link probability of various phrases or mentions. Define link link probability of a phrase as the 
+number of wikipedia articles that use the phrase as anchor divided by  number of articles that mention the phrase at all.
+% \begin{equation}
+%   $$ link probability of a phrase = \frac{number of wikipedia articles that use the phrase as anchor}{ number of articles that mention the phrase at all } $$
+% \end{equation}
+% link probability of a phrase = \frac{number of wikipedia articles that use itthe phrases anchor}{ number of }
+Next they disambiguated links by taking help of the surrounding words 
+( the words themselves and their parts of speech). Here a problem occurs on which meaning to select.
+The best method is to take the most common meaning first. Then calculate the relatedness
+with the context. Define $ relatedness(a,b) = \frac{log(max(|A|, |B|)) - log(|AB|)}{log|W|-log(min(|A|, |B|))} $,
+where $a$,$b$ are the Article of interest, $A$ , $B$ are sets of all articles linking to $a$,$b$ respectively and $W$ 
+is the set of all articles.
+
+After that, by comparing 
+the  common meaning with the relatedness, the correct link was found. 
 For example, the word `tree' has a common meaning `plant' and so 97\% of the time, it will link to a page on plants.
 But if we find `binary tree' in a document, the relatedness of `tree' to `binary' suggests that this
-phrase is related to data structure. That is how almost everyone disambiguates links.   
+phrase is related to data structure. That is how almost everyone disambiguates links. Followed by this, they 
+did Topic indexing which aims to identify the most significant topics, summarize the document and organize it 
+into various categories, and to answer queries fast. In topic indexing, the key problem is to find the correct significant 
+terms and disambiguate them to appropriate topic.   
 
 %After that, in order to organize the documents, they have used topic indexing.
 %In order to make link detection efficient, Mihalcea annd Csomai et al used 
 %(a) commonness (prior probability of each sense) and (b) how the sense relate with the nearby context.
 
 
- 
-Next we have an important work of Larry Heck and Hongzhao Huang ~\cite{ref1DeepLearning}. 
+The Next work deals with a semi-supervised graph regularization method on 
+twitter data wikification ~\cite{ref4tw-wiki}. There the authores described the problems as unlinkability 
+( absense of a valid concept from knowledge base), ambiguity and prominence. Some more major problem for working
+with twitter data are informal writing style, shortness and noisiness. To deal with these problems, the authors 
+developed a graph-based semi-supervised learning algorithm for wikification. Their model at the same time, detects 
+mentions and disambiguates them at both local and global levels. They have also developed meta path-based unified framework
+to detect relevant mentions. Their method works in this way: given a set of tweets $<t_1,t_2,... ,t_n>$ ,
+first find candidate concept mentions $<m,c1,c2,...,ck>$. From there, we find the most probable concept $c$
+related to  mention $m$ and so we get $<m,c>$ . After that , they constructed a relational graph $G= <V,E>$ .
+
+Here set of nodes $V = <v_1,...,v_n>$, and set of edges $E = <e_1,...,v_e>$. Here $v_i = <m_i, c_i>$. 
+
+Finally, we have an important work of Larry Heck and Hongzhao Huang ~\cite{ref1DeepLearning}. 
 First they developed a robust way to represent concepts.
  Many NLP tools use string concatenation to represent ideas.
 But most of the time it fails to represent appropriate concepts. For example `Madrid' is a place, `Real'
