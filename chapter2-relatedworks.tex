@@ -31,11 +31,12 @@ PSL has some advantages. We can represent models using first order logic syntaxe
 We can have continuously valued random variables that is convenient with uncertainty or probability.
 Using weights, we can control the importance of model rules.
 
+\subsection{Link Detection}
 One common problem in building a Knowledge Graph is to find appropriate links between various 
 concepts. Mihalcea annd Csomai et al ~\cite{ref3LinkWikipedia} have worked on link detection. They used 
 machine learning on a wikipedia dump to link a concept(article) with its corresponding mention. 
 There they have also calculated 
-link probability of various phrases or mentions. Define link link probability of a phrase as the 
+link probability of various phrases or mentions. Define link probability of a phrase as the 
 number of wikipedia articles that use the phrase as anchor divided by  number of articles that mention the phrase at all.
 % \begin{equation}
 %   $$ link probability of a phrase = \frac{number of wikipedia articles that use the phrase as anchor}{ number of articles that mention the phrase at all } $$
@@ -73,7 +74,7 @@ first find candidate concept mentions $<m,c1,c2,...,ck>$. From there, we find th
 related to  mention $m$ and so we get $<m,c>$ . After that , they constructed a relational graph $G= <V,E>$ .
 
 Here set of nodes $V = <v_1,...,v_n>$, and set of edges $E = <e_1,...,v_e>$. Here $v_i = <m_i, c_i>$. 
-
+\subsection{A Deep Neural Networking Approach}
 Finally, we have an important work of Larry Heck and Hongzhao Huang ~\cite{ref1DeepLearning}. 
 First they developed a robust way to represent concepts.
  Many NLP tools use string concatenation to represent ideas.
@@ -81,10 +82,21 @@ But most of the time it fails to represent appropriate concepts. For example `Ma
  means 
 something authentic or true, but `Real Madrid' refers to a football club. 
 This is a counter example where string concatenation fails.
-A possible alternative is to use word hashing with $n$-gram ( tri-gram in this case) 
+A possible alternative is to use \textit{Word Hashing} with $n$-gram ( tri-gram in this case) 
 word representation. This way turns words into concept-vectors. This representation is 
-robust because it can be used even for unseen words. After that they did neural embedding of knowledge graph. 
- To do so, they tracked a concept and its corresponding subgraph, encode the knowledge as featured vector.
+robust because it can be used even for unseen words.
+So for example, \textit{dog} is a word. First put \# before and after the word, so it becomes \textit{\#dog\#}.
+Then we get these trigrams: \#do , dog , og\#.
+  Thus $ \vec(m) = \vec(\#dog\#) = \widehat(\#do) + \widehat(dog) + \widehat(og\#)$.
+  Since tweets donot have adequate data, one needs external source of knowledge to  make sense of 
+  the tweets. In this case, they took a wikipedia dump, converted the documents into concept vectors
+   $\vec(c)$ and simply took a dot product of the $ \vec(m) $ and $ \vec(c) $. If the tweet and the concept 
+   are similar, the two vectors will have smaller angle, ie, $ \cos(\theta) = \vec(m).\vec(c)/mc $ . 
+This is defined as the semantic relatedness of two concepts, $R(m,c) $.
+ After that they did neural embedding of knowledge
+ graph. 
+ To do so, they tracked a concept and its corresponding subgraph, encode the knowledge as featured 
+ vector.
  then they trained Deep Neural Network to get semantic relationships among various concepts.
 After that, they took tweets and used their deep neural network on those tweets.
 \endinput

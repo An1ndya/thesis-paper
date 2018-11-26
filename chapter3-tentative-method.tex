@@ -1,10 +1,16 @@
 \chapter{Tentative Methodology}\label{ch3}
-In order to create a graph $G = <V,E>$, where set of vertices $V = <v_1,v_2,... v_n>$, $v_i = <m_i, c_i>$ and
-set of edges $E = <e_1, e_2,...,e_m>$.
-Here, each node is a tweeter mention $m_i$ and its corresponding concept $c_i$ pair.
- we need to create nodes and edges.
-To create the nodes, we need to collect tweets. But the tweets donot give adequate data and so, 
-we need to collect data from dbpedia. Next we willl create $n$-grams of the collected data and tweets,
+In order to create a graph $G = <V,E>$, where set of vertices is $V = <v_1,v_2,... v_n>$ and
+set of edges $E = <e_1, e_2,...,e_m>$. Here vertex $v_i = <m_i, c_i>$ where $m_i$ is a tweet and $c_i$
+is a concept from dbpedia.
+So each node is a pair of tweeter mention $m_i$ and its corresponding concept $c_i$.
+
+To create the nodes, we need to collect tweets. But the tweets donot give adequate data. 
+Since a single tweet doesnot give us adequate data, we can use a set of tweets discuss about same topic 
+leading us to some data to disambiguate meaning. In order to work with tweets, we need to 
+perform some Natural Language Processing. For this we will use GATE Developer ~\cite{url0gate} , a 
+text analysis or language processing toolkit.
+
+Next we need to collect data from dbpedia. Next we will create $n$-grams of the collected data and tweets,
  and use machine learning to train to match tweets with its corresponding concept.
 
  Thus we will have nodes $<m_i, c_i>$. After that, we need to connect the nodes with edges. 
