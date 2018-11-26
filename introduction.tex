@@ -1,20 +1,49 @@
 \chapter{Introduction}\label{intro}
+The present world is a place with immeasurable data or information due to World Wide Web.
+ Where the web is a vast repository of knowledge. 
+ Each and every day this amount is increasing .It is getting harder day by day 
+ for a person to extract exact information s/he needs to analysis them to have a desired goal.
 
-The present world is a place with immeasurable date or informations due to world wide web.
- Each and every day this amount is increasing. It is getting harder day by day for people to extract 
- exact information he/she needs and to analysis them to have a desired goal. However this big data 
- has become a challenge for computer science to organize, 
- store and most importantly efficient searching. (As far as the word  efficient searching means 
- searching a particular word with all its variationns.) 
 
-A single word can represent a person, place, name of organization, restaurant . Again a word slightly different 
-spelling can represent totally different thing. It is very hard for a single person or a particular 
-softwere to do this. So, we need to make machine learn way of efficient searching.
 
-It may be helpful for us to write grammers for machine to learn than writing all 
-the rules of searching by ourselves.
-Now for machine to learn to work or search in order to search efficiently we need 
-data or information to be organized in a way that machine can analyze those data.
-Here knowledge graph comes into play.
+ But automatically extracting that huge knowledge at scale has proven to be a formidable challenge for computer science to organize, store and most importantly efficiently searching. A search data structure is any data structure that allows the efficient retrieval of specific items from a set of items, 
+ such as a specific record from a database.
 
+
+ A single word can represent a person, place, name of organization, restaurant. Again a word slightly different spelling can represent totally different thing. As far as the word efficient searching means searching a particular word with all its variations. It is very hard for a single person or a particular software to extracting the exact semantic data. It may be a better way for us to make machine learn the way of efficient searching.
+
+
+ It may be helpful for us to write grammars for machine to learn than writing all the rules of searching by ourselves. Now for machine to learn to work or search in order to search efficiently we need data or information to be organized in a way that machine can analyze those data. Here knowledge graph comes into play.
+
+
+ Knowledge graphs have become an increasingly crucial component in machine intelligence systems, powering ubiquitous digital assistants and inspiring several large scale academic projects across the globe. Many problems in AI require to deal with both relational structure and uncertainty. As a consequence, there is a growing need for tools that facilitate the development of complex probabilistic models with relational structure.
+
+
+
+ All these facts are interrelated, and hence, recently this extracted knowledge has been referred to as a knowledge graph . A key challenge in producing the knowledge graph is incorporating noisy information from different sources in a consistent manner. Information extraction systems operate over many source documents, such as web pages, and use a collection of strategies to generate candidate facts from the documents, spanning syntactic, lexical and structural features of text. Ultimately, these extraction systems produce candidate facts that include a set of entities, attributes of these entities, and the relations between these entities which we refer to as the extraction graph.
+
+
+ Recent evaluation efforts have focused on automatic knowledge base population [1,2], and many well-known broad domain and open information extraction systems exist, including the Never-Ending Language Learning (NELL) project [3], OpenIE [4], and efforts at Google [5], which use a variety of techniques to extract new knowledge, in the form of facts, from the web. 
+
+With the goal of teaching machines to understand human conversations, one of the most fundamental components of a conversational understanding system is the semantic parser. Conversational semantic parsers map natural language (NL) to a formal representation of meaning, typically defined by the intent of the user and the associated arguments of the intent (slots or concepts) [1].
+
+
+Considerable advancements in semantic parsing have been made possible by the availability of massive volumes of data from social media.
+With the recent emergence of very large-scale semantic knowledge graphs (KGs) [7], it is now possible to add structure to the machine learning procedures developed above. Specifically, we have developed methods to enrich KGs with automatically annotated training data through unsupervised data mining methods. 
+
+
+Our approach is large-scale multi-concept (entity, relation, fact) open domain semantic parsing. Our approach is web-scale, learning neural embedding for all the concepts of twitter. Also, while the other approaches rely on supervised training, our approach is unsupervised.  
+We use microblogging and more particularly Twitter for the following reasons:
+ Microblogging platforms are used by different people to express their opinion about different topics, thus it is a valuable source of people’s opinions.  Twitter contains an enormous number of text posts and it grows every day. The collected corpus can be arbitrarily large.  Twitter’s audience varies from regular users to celebrities, company representatives, politicians, and even country presidents. Therefore, it is possible to collect text posts of users from different social and interests groups.  Twitter’s audience is represented by users from many countries. 
+
+
+ In this thesis paper we analyze the process, algorithm for constructing knowledge graph. We try to extract information from twitter. Moreover we develop the way of accessing DBpedia database in order to enrich entity relationship in knowledge graph. It means knowledge in graph form. Here nodes are entities which are labeled with attributes typed edges between two nodes capture a relationship between entities. KG is vastly used in google, Amazon as amazon product graph, Facebook graph API, IBM Watson, Microsoft satori.  Generally knowledge graph come from structured or unstructured texts and Images and videos. 
+
+
+ In our KGs entity-relationship edge is assumed as RDF triples like <rdf: Subject, rdf: Predicate, rdf: Object >  .
+A starting with GATE Developer 8.4.1 for analyzing live tweets from twitter many processing resources such as ANNIE, Transducer allowed us identifying Token of different kinds. By codding grammar rule using JAPE in GATE noun, pronoun were identified which will be used as Node in KGs. 
+
+
+But for the seek of better semantic analysis and improved relationship between closer entity, development of a process ‘Word Hashing’ has been done. Which represents a word of a string as vector of a letter n-grams to reduce the dimensionality bag of words-term vectors. Two words are compared based on the angle between two vectors representing those words. The smaller the angle, the closer the relation between the words. 
+So , our goal is to through all this process developing a better knowledge graph based on closer entity-relationship that is efficient to extract information , process and analyze .
 \endinput

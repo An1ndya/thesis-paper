@@ -1,0 +1,15 @@
+\chapter{Tentative Methodology}\label{ch3}
+In order to create a graph $G = <V,E>$, where set of vertices $V = <v_1,v_2,... v_n>$, $v_i = <m_i, c_i>$ and
+set of edges $E = <e_1, e_2,...,e_m>$.
+Here, each node is a tweeter mention $m_i$ and its corresponding concept $c_i$ pair.
+ we need to create nodes and edges.
+To create the nodes, we need to collect tweets. But the tweets donot give adequate data and so, 
+we need to collect data from dbpedia. Next we willl create $n$-grams of the collected data and tweets,
+ and use machine learning to train to match tweets with its corresponding concept.
+
+ Thus we will have nodes $<m_i, c_i>$. After that, we need to connect the nodes with edges. 
+ We will use link detection tecniques as discussed in ~\cite{ref3LinkWikipedia} to 
+ find possible links and disambiguate links.
+
+
+\endinput

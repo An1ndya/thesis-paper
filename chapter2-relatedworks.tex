@@ -1,17 +1,33 @@
 \chapter{Related Works}\label{ch2}
-Previously there have been many researches conducted on knowledge graphs.
+Previously there have been many researches conducted on knowledge graphs. They share some common as well 
+as different approaches.
 Let us discuss them one by one.
- 
-In the paper `Knowledge Graph Identification' ~\cite{ref0kgi}, the authors have extracted uncertain
- entities and their relations to create an `extraction graph'.  Next they removed noise, added missing 
- information and determined candidate facts that resulted into a Knowledge Graph Identification. Reasoning 
- jointly about candidate facts, extracting their confidence, identifying coreferences, imposing 
- ontological constraints, removing duplicate entities, resolving ontological constraints
- were some of the other tasks. To disambiguate and relate a concept with similar concept,
-the researchers have used Probabilistic Soft Logic (PSL) ~\cite{ref0psl}  ontological constraints,  
-identify coreferences etc. 
+ \section{Knowledge Graph Identification}
+In the paper `Knowledge Graph Identification' ~\cite{ref0kgi}, the authors collected two different data sets.
+In both of them, they extracted uncertain entities and their relations to create an `extraction graph'. 
+The resulting extraction graph was full of noise, missing information. So they removed noise, 
+added missing informations. After that, they needed to find candidate facts. 
+Reasoning jointly about candidate facts, extracting their confidence, identifying coreferences, 
+ imposing ontological constraints, removing duplicate entities, resolving ontological conflicts
+ were some of the other tasks. Let us take an example.
 
-PSL has some advantages. Models can be easily defined using declarative rules with first order logic syntax. 
+ ``We can use \textbf{Binary Search Tree}, for fast lookup, addition and deletion of an item''.
+Usually, the word \textbf{tree} means something related to plants. But in this case, \textbf{tree}
+refers to a data structure because the words \textbf{binary}, \textbf{search} are imposing ontological 
+constraints. Therefore we can distinguish between the two meanings and disambiguate them. Next, they needed to 
+create edges between the nodes.
+ To relate a concept with similar concept,
+the researchers have used Probabilistic Soft Logic (PSL) ~\cite{ref0psl}  ontological constraints,
+identify coreferences etc. 
+\subsection{Probabilistic Soft Logic(PSL)}
+We know, that boolean variables have only two values: $True$ and $False$ or $1$ and $0$. So boolean
+logics can tell only between 2 choices. In real world problems, this is not always usable. 
+This is where PSL comes innto play. PSL assigns a value in range $[0,1]$. For example, the word
+ \textbf{tree} is not always related to plants. So, we cannot assign $0$ or $1$ to it.
+  Instead, we can assign \textbf{tree} with a value, say $0.8$ with the meaning \textbf{plan}
+  and $0.2$ with the meaning  
+
+PSL has some advantages. We can represent models using first order logic syntaxes.
 We can have continuously valued random variables that is convenient with uncertainty or probability.
 Using weights, we can control the importance of model rules.
 
