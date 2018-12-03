@@ -8,11 +8,16 @@ To create the nodes, we need to collect tweets. But the tweets donot give adequa
 Since a single tweet doesnot give us adequate data, we can use a set of tweets discuss about same topic 
 leading us to some data to disambiguate meaning. In order to work with tweets, we need to 
 perform some Natural Language Processing. For this we will use GATE Developer ~\cite{url0gate} , a 
-text analysis or language processing toolkit.
+text analysis or language processing toolkit. It helps us to annotate, gazetize, corefer
+ etc in the tweets.
 
-Next we need to collect data from dbpedia. Next we will create $n$-grams of the collected data and tweets,
- and use machine learning to train to match tweets with its corresponding concept.
 
+Next we need to collect data from dbpedia because the tweets themselves 
+donot provide adequate data. After collecting the dbpedia data, we will convert them into $n$-grams.
+For each acticles in dbpedia, we will create its corresponding concept vector, $c$. After that, we need to 
+use machine learning to train how to detect a concept and find relations between them. We also need 
+to train on matching twitter mentions $m$ with their corresponding concept vectors $c$.
+ 
  Thus we will have nodes $<m_i, c_i>$. After that, we need to connect the nodes with edges. 
  We will use link detection tecniques as discussed in ~\cite{ref3LinkWikipedia} to 
  find possible links and disambiguate links.
