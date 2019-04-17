@@ -1,0 +1,63 @@
+\chapter{Methodology}\label{ch4}
+
+\section{Proposed Methodology}
+In order to build a knowledge graph from tweets, we can divide our problem into these sub-problems. They are:
+\begin{itemize}
+\item Extracting information / tuples from tweets 
+\item Merging those tuples with External Knowledge graphs
+\item disambiguating after Merging 
+\end{itemize} 
+These two hypothesis are elaborated below: 
+
+\Section{ Extracting Information or Tuples from tweets }
+We know that tweets have very limited data. for example, 
+\textit{ @ImRo45 is back in the Test squad for India’s tour of Australia. } is a tweet. Someone with adequate knowledge in cricket
+may assume that this is about a game but otherwise, there is very little information in this tweet. 
+Also, words like prepositions (of, in, for) , articles (a, the) have almost no value. On the contrary, `India', `tour', `Australia' 
+are inpoetant words here. 
+So, we have to extract these \textit{ important } words into \textit{ tuples } of the form $<u, e, v>$ . \\
+ Define tuple of a graph $<u, e, v>$ where $ u $ is starting node, $ v $ is ending node and $ e $ is an edge between $ u $ and $v $. \\
+
+this can be done in two ways: 
+\begin{itemize}
+\item Machine Learning 
+\item JAPE 
+\end{itemize} 
+\\
+In machine learning approach, one has to divide the dataset into `training dataset'  and `test dataset' . 
+After that, one has to manually annotate the test dataset by marking possible tuples. After that, some machine learning algorithm
+ can be trained on the test dataset and finally use it on the test dataset. 
+\\ 
+JAPE stands for `Jolly And Pleasant Experience'. It is a special kind of pattern matching language in GATE developer. 
+By writting rules in JAPE , one can fine-tune GATE developer to extract necessary information which is in this case, 
+finding the appropriate tuples. 
+\\ 
+In our methodology, we used JAPE. The reason is that, in previous works, other researchers  
+~\cite{ref1DeepLearning} have already used machine learning approaches in this stage. Besides, we know 
+that a machine learning algorithm is only as good as its training dataset. Using JAPE, detect tuples 
+better.   
+
+
+\section{ Merging Tuples with External Knowledge Graphs }
+Since we have very limited data in our tweets, we need the help of an external knowledge graph to build 
+up our version of knowledge graph. Suppose, in the previous step, we got this tuple: \testit{Alice loves Bob} here $<u, e, v> = <Alice, love, Bob>$.
+Now the problem is that we need to identify who Alice and Bob really are, ie, if Alice is an actor , a fictional character or someone else.
+
+For this can use Freebase, DBpedia etc as a source of external knowledge graph.
+In our case, we took the liberty to use DBpedia. How to extract data from DBpedia is given below: 
+\subsection{SPARQL}
+One way to get data from DBpedia is to use the SPARQL. We can write queries in this language, such as 
+
+In our case , we have nodes $ u $ and $ v $, so we can fetch datas that are related to both of them and make an intersection of those. 
+But practically, this intersection returns a huge list of tentative tuples.  We can set a limit in our query to 
+restrict our results' size. But still we need to disambiguate the results. For this, the next section comes into play.
+
+\section{ disambiguating after Merging }
+For each tuple <u,e,v> , we have a set of tentative tuples from dbpedia. We have to select only one of 
+them. For this there are several ways:
+\subsection{Relatedness}
+ We can compute $ relatedness $ of two articles , $a$ , $b$ using the formula 
+  $ relatedness(a,b) = \frac{\log(max(|A|, |B|)) - \log(A \cap B) }{ \log(W) - \log(max(|A|, |B|)) } $
+
+
+\endinput
