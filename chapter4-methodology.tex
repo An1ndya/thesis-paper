@@ -4,7 +4,7 @@
 In order to build a knowledge graph from tweets, we can divide our problem into these sub-problems. They are:
 \begin{itemize}
 \item Extracting information / tuples from tweets 
-\item Merging those tuples with External Knowledge graphs
+\item Merging those tuples with External Knowledge base
 \item disambiguating after Merging 
 \end{itemize} 
 These two hypothesis are elaborated below: 
@@ -55,7 +55,7 @@ we have to Extract informations from multiple sentences.
 
 
 
-\section{ Merging Tuples with External Knowledge Graphs }
+\section{ Merging Tuples with External Knowledge Base }
 Since we have very limited data in our tweets, we need the help of an external knowledge graph to build 
 up our version of knowledge graph. Suppose, in the previous step, we got this tuple: \testit{Alice loves Bob} here $<u, e, v> = <Alice, love, Bob>$.
 Now the problem is that we need to identify who Alice and Bob really are, ie, if Alice is an actor , a fictional character or someone else.
@@ -73,13 +73,14 @@ restrict our results' size. But still we need to disambiguate the results. For t
 For each tuple <u,e,v> , we have a set of tentative candidates $<a_1, b_1>$, $<a_2, b_2>$, $<a_n, b_n>$ from dbpedia. 
 We have to select only one of them. For this there are several ways:
 \subsection{Calculating Relatedness}
- We can compute $ relatedness $ of two articles , $a$ , $b$ using the formula 
-  $ relatedness(a,b) = \frac{\log(max(|A|, |B|)) - \log(A \cap B) }{ \log( |W| ) - \log(max(|A|, |B|)) } $
+ We can compute $ relatedness $ of two articles , $a$ , $b$ using the formula \\
+  $ relatedness(a,b) = \frac{\log(max(|A|, |B|)) - \log(A \cap B) }{ \log( |W| ) - \log(max(|A|, |B|)) } $ \\
+
 where $a$ , $b$ are the articles of our interest, $A$  = set of all articles linking to $a$, $B$ = set of all articles linking to $b$, 
 and $W$ = set of all links in DBpedia. The formula generates a score for each candidate tuples and we select te one with the highest score.
 This is the easiest way to perform disambiguation.   
 
-\subsection{ Vector Analysis }
+\subsection{ Word HAshing with letter tri-gram }
 In this way, we can we take a candidate $<a_i, b_i>$, then we read the articles by converting them into $n-grams$, 
 then we calculate the angle between them. The closer the articles are, the better result we can get. 
 
