@@ -37,6 +37,22 @@ In our methodology, we took the liberty to use JAPE. The reason is that, in prev
 that a machine learning algorithm is only as good as its training dataset. Using JAPE, detect tuples 
 better. How we can use JAPE is expained below: 
 
+\textbf{ CASE 1: } \\
+First we start by writing rules for simple sentences. For example, \textit{ CR7 has joined Juventus }. Our target is to 
+convert this sentences into tuple form like $<u,e,v> = <CR7 , join, juventus > $. So our initial target is to
+ write JAPE rules for these kinds of sentences or tweets. \\ 
+
+\textbf{ CASE 2: } \\
+Practically, sentences like case 1 donot provide much information. So now we need to extract 
+information from the surrounding context. For example, \textit{ segment tree is a good data structure. } 
+The previous rule may create tuples like <tree, is data>. This is ambiguous as we cannot differentiate  But in this case we want <segment tree, is, data structure>. 
+So we have to extract words like `segment' that will allow us to disambiguate between `plants' and `data structure trees'.
+
+\textbf{ CASE 3: } \\ 
+Though tweets are very small, we can occationally come across tweets with multiple (two or three) sentences. In that case,
+we have to Extract informations from multiple sentences.
+
+
 
 
 \section{ Merging Tuples with External Knowledge Graphs }
